@@ -12,8 +12,8 @@ export default function Router(){
                 <Route path="/contato" component = { Contato }/>
                 <Route path="/lojas" component = { NossasLojas }/>
                 <Route path = "/produtos" component = { Produtos }/>
-                <Route path = "/" exact component = { Index }/>
+                <Route path = "/" exact={true} component = { Index }/>
             </Switch>
-        </BrowserRouter>
+         </BrowserRouter>
     );
 }
