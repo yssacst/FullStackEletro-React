@@ -1,6 +1,11 @@
+import FormaPagamento from "../components/FormaPagamento";
+import Menu from "../components/Menu";
+
 function Contato(props){
     return(
-        <div className="container-fluid">
+        <div>
+            <Menu />
+
             <div className="row p-5">
                     <h2>Fale Conosco</h2>
                     <hr/>
@@ -30,6 +35,7 @@ function Contato(props){
                     <input type="submit" value="Enviar" class="btn btn-light"/>
                 </form>
             </div>
+            <FormaPagamento img='/img/pagamento.jpg' footer="Recode Pro"/>
         </div>
     );
 }

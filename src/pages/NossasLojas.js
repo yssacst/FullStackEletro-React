@@ -5,7 +5,9 @@ import FormaPagamento from '../components/FormaPagamento';
 export default class NossasLojas extends React.Component{
     render(){
         return(
-            <div className="container-fluid ">
+            <div>
+                <Menu />
+
                 <header>
                     <h2>Nossas Lojas</h2>        
                 </header>   
@@ -32,6 +34,7 @@ export default class NossasLojas extends React.Component{
                         <p>(21) 4004-4044</p>
                     </div>
                 </div>
+                  <FormaPagamento img='/img/pagamento.jpg' footer="Recode Pro"/>
             </div>
         );
     }
