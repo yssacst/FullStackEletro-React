@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Menu from './components/Menu';
+import Contato from './pages/Contato';
+import Produtos from './pages/Produtos';
+import NossasLojas from './pages/NossasLojas';
+import FormaPagamento from './components/FormaPagamento';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component{
+
+  render(){
+    return(
+      <div className="App">
+        <Menu/>
+        <NossasLojas/>
+        <footer className="page-footer">
+          <FormaPagamento title="Formas de Pagamento" img={ '/img/pagamento.jpg'} footer="Recode Pro"/>
+        </footer>
+      </div>
+    )
+  }
 }
-
-export default App;
