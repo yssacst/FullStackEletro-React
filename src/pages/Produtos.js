@@ -28,10 +28,6 @@ export default class Produtos extends React.Component{
     }
 
     getCategoria(e){
-        // console.log('clicou');
-        // console.log( e.target.value);
-
-
         this.setState({
             categoria: e.target.value
         });
@@ -82,7 +78,7 @@ export default class Produtos extends React.Component{
                     </div>
                 </div>
         
-              <FormaPagamento img='/img/pagamento.jpg' footer="Recode Pro"/>
+              <FormaPagamento img='pagamento.jpg' footer="Recode Pro"/>
 
             </div>
         );

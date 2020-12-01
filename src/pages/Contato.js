@@ -12,11 +12,11 @@ function Contato(props){
                 </div>
             <div className="row">
                <div className="col-sm-6 d-flex  justify-content-center">
-                    <img src={'/img/email.png'} alt="icone de email" width="50px"/>
+                    <img src={ require('../img/email.png').default } alt="icone de email" width="50px"/>
                     <p>fullstack@eletro.com</p>
                </div>
                <div className="col-sm-6 d-flex  justify-content-center">
-                    <img src={ '/img/wpp.png' } alt="icone de whatsapp" width="50px"/>
+                    <img src={ require('../img/wpp.png').default }  alt="icone de whatsapp" width="50px"/>
                     <p>21 4932-4564</p>
                </div>
             </div>
@@ -35,7 +35,7 @@ function Contato(props){
                     <input type="submit" value="Enviar" class="btn btn-light"/>
                 </form>
             </div>
-            <FormaPagamento img='/img/pagamento.jpg' footer="Recode Pro"/>
+            <FormaPagamento img='pagamento.jpg' footer="Recode Pro"/>
         </div>
     );
 }

@@ -7,7 +7,7 @@ export default class Menu extends React.Component{
         return(
                 <nav className="navbar navbar-expand-lg navbar-light menu" style={{ backgroundColor:"red" }}>
                     <Link to="/" className="navbar-brand">
-                        <img src={ '/img/logo.png' } alt="logo full stack eletro" width="150px"/>
+                        <img src={require('../img/logo.png').default } alt="logo full stack eletro" width="150px"/>
                     </Link>
                     
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
