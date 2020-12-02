@@ -10,13 +10,13 @@ export default class cardProduto extends React.Component{
         return(
             <div className="boxProduto text-center">
                 <div className="card">
-                    <img className="card-img-top" src={require('../img/'+this.props.produto.nome_imagem).default} alt={ "Imagem da " + this.props.produto.descricao} />
+                    <img className="card-img-top" src={require('../img/'+this.props.data.nome_imagem).default} alt={ "Imagem da " + this.props.data.descricao} />
                     <div className="card-header">
-                        <p>{this.props.produto.descricao}</p>
+                        <p>{this.props.data.descricao}</p>
                     </div>
                     <div className="card-body">
-                        <p><small><strike>R$ {this.props.produto.preco}</strike></small></p>
-                        <h5 className="text-danger">R$ {this.props.produto.preco_venda}</h5>
+                        <p><small><strike>R$ {this.props.data.preco}</strike></small></p>
+                        <h5 className="text-danger">R$ {this.props.data.preco_venda}</h5>
                     </div>
                 </div>
             </div>

@@ -16,11 +16,11 @@ export default class NossasLojas extends React.Component{
                 
                 <div className="row">
                     <div className="col-sm-12 mt-10 ">
-                        <h2>Nossas Lojas</h2>        
+                        <h2 className="mt-3">Nossas Lojas</h2>        
                     </div>
                 </div>
 
-                <div className="row mt-10">
+                <div className="row mt-5">
                         <Loja nome="Rio de Janeiro" rua="Rua Luigi Galvani, 70" andar="4" bairro="Centro" telefone="(21) 4004-4044"/>  
                         <Loja nome="São Paulo" rua="Rua Joanes Petroni, 102" andar="6" bairro="Centro" telefone="(21) 3005-6522"/>  
                         <Loja nome="Santa Catarina" rua="Rua Louvre Senior, 920" andar="2" bairro="Centro" telefone="(21) 3658-1287"/>  
