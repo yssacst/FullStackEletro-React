@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import '../css/Menu.css'
+
 
 
 export default class Menu extends React.Component{
     render(){
         return(
-                <nav className="navbar navbar-expand-lg navbar-light menu" style={{ backgroundColor:"red" }}>
+                <nav className="navbar navbar-expand-lg navbar-light menu" >
                     <Link to="/" className="navbar-brand">
                         <img src={require('../img/logo.png').default } alt="logo full stack eletro" width="150px"/>
                     </Link>

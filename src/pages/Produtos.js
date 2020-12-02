@@ -1,9 +1,8 @@
 import React from 'react';
 import CardProduto from '../components/CardProduto';
-import FormaPagamento from '../components/FormaPagamento';
+import Footer from '../components/Footer';
 import Menu from '../components/Menu';
-import '../css/produtos.css'
-
+import '../css/Produtos.css'
 
 export default class Produtos extends React.Component{
     constructor(props){
@@ -32,33 +31,42 @@ export default class Produtos extends React.Component{
             categoria: e.target.value
         });
     }
-
+    
     render(){
         return(
             <div className="container-fluid">
-                <div className='row'>
-                    <div className='col-12'>
+                
+                <div className="row">
+                    <div className="col-12 p-0">
                         <Menu />
                     </div>
                 </div>
                 
+                <div className="row mt-10">
+                    <div className="col">
+                        <h3 className="mt-3 mb-3">Produtos</h3>
+                        {
+                            this.state.categoria != 'todos'?
+                            <small>Filtrando por {this.state.categoria}</small>    :
+                                <span></span>
+                        }
+                    </div>
+                </div>
+
                 <div className="row">
                     <div className="col-sm-3">
-                        <div>
-                            <ul>
-                                <li><button value='geladeira' onClick={this.getCategoria } >Geladeiras (3)</button></li>
-                                <li><button value='fogao' onClick={this.getCategoria }>Fogões (2)</button></li>
-                                <li><button value='microondas' onClick={this.getCategoria }>Microondas (1)</button></li>
-                                <li><button value='lavaroupas' onClick={this.getCategoria }>Lavadoura de Roupas (2)</button></li>
-                                <li><button value='lavaloucas' onClick={this.getCategoria }>Lava-Louças (2)</button></li>
-                                <li><button value='todos' onClick={this.getCategoria }>Todos</button></li>
-                            </ul>
+                    <div className="list-group p-2">
+                                <button type="button" className="list-group-item list-group-item-action" value='geladeira' onClick={this.getCategoria } >Geladeiras (3)</button>
+                                <button type="button" className="list-group-item list-group-item-action" value='fogao' onClick={this.getCategoria }>Fogões (2)</button>
+                                <button type="button" className="list-group-item list-group-item-action" value='microondas' onClick={this.getCategoria }>Microondas (1)</button>
+                                <button type="button" className="list-group-item list-group-item-action" value='lavaroupas' onClick={this.getCategoria }>Lavadoura de Roupas (2)</button>
+                                <button type="button" className="list-group-item list-group-item-action" value='lavaloucas' onClick={this.getCategoria }>Lava-Louças (2)</button>
+                                <button type="button" className="list-group-item list-group-item-action" value='todos' onClick={this.getCategoria }>Todos</button>
                         </div>
                     </div>
-                    {/* transformar em componente */}
-                    <div className="col-sm-9">
-                        <div className="row d-flex justify-content-center">
-                            <div className="boxProduto text-center">
+
+                    <div className="col-sm col-9 p-0">
+                        <div className="row d-flex justify-content-center mr-2 ">
                                 { this.state.produtos.map(
                                     produto => 
                                     {
@@ -73,13 +81,14 @@ export default class Produtos extends React.Component{
                                         }
                                     }
                                 )}
-                            </div>
                         </div>
                     </div>
                 </div>
-        
-              <FormaPagamento img='pagamento.jpg' footer="Recode Pro"/>
-
+                <div className="row">
+                    <div className="col-12 p-0">
+                    <Footer img='pagamento.jpg' title="Formas de Pagamento" footer="Recode Pro"/>
+                    </div>
+                </div>
             </div>
         );
     }

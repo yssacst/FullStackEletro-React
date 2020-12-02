@@ -1,4 +1,4 @@
-import FormaPagamento from "../components/FormaPagamento";
+import Footer from "../components/Footer";
 import Menu from "../components/Menu";
 
 function Contato(props){
@@ -35,7 +35,7 @@ function Contato(props){
                     <input type="submit" value="Enviar" class="btn btn-light"/>
                 </form>
             </div>
-            <FormaPagamento img='pagamento.jpg' footer="Recode Pro"/>
+            <Footer img='pagamento.jpg' title="Formas de Pagamento"  footer="Recode Pro"/>
         </div>
     );
 }
