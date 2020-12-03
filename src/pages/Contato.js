@@ -14,10 +14,15 @@ export default class Contato extends React.Component{
 
         this.setComentario = this.setComentario.bind(this);
         this.getInput = this.getInput.bind(this);
+        this.getComentarios = this.getComentarios.bind(this);
     }
 
 
     componentDidMount(){
+        this.getComentarios();
+    }
+
+    getComentarios(){
         fetch("http://localhost/react/api/index.php?tabela=comentarios")
         .then(( response ) => response.json())
         .then(( responseJson ) =>
