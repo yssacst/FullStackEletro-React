@@ -1,5 +1,4 @@
 import React from 'react';
-import Comentario from '../components/Comentario';
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
 import '../css/Contato.css';
@@ -13,17 +12,13 @@ export default class Contato extends React.Component{
             comentarios:[]
         }
 
-        this.getComentarios();
-        this.setContato = this.setContato.bind(this);
+        this.setComentario = this.setComentario.bind(this);
         this.getInput = this.getInput.bind(this);
     }
 
-    setContato(){
-        // enviar pro api php
-    }
 
-    getComentarios(){//alterar nome da tabela para comentario
-        fetch("http://localhost/react/api/index.php?tabela=contato")
+    componentDidMount(){
+        fetch("http://localhost/react/api/index.php?tabela=comentarios")
         .then(( response ) => response.json())
         .then(( responseJson ) =>
         {
@@ -31,6 +26,12 @@ export default class Contato extends React.Component{
                 comentarios: responseJson
             });
         })
+    }
+
+    setComentario(e){
+        fetch("http://localhost/react/api/setComentario.php?nome="+this.state.nome+"&msg="+this.state.msg,
+         {mode:"no-cors"});
+        // e.preventDefault();
     }
 
     getInput(e){
@@ -66,10 +67,10 @@ export default class Contato extends React.Component{
                 <div className="row">
                     <div className="col-sm">
 
-                        <form id="frmContato" method="post" onSubmit={this.setContato} className=" m-4">
+                        <form id="frmContato" onSubmit={this.setComentario} className=" m-4">
                             
-                            <div class="form-row justify-content-center">
-                                <div class="col-7 ">
+                            <div className="form-row justify-content-center">
+                                <div className="col-7 form ">
                                     
                                     <div className="form-group">
                                         <label htmlFor="nome">Nome:</label>
@@ -81,7 +82,7 @@ export default class Contato extends React.Component{
                                         <textarea type="text"  id="msg" name="msg" onChange={this.getInput} className="form-control"></textarea>
                                     </div>
                                     
-                                    <input type="submit" value="Enviar" className="btn btn-light"/>
+                                    <input type="submit" value="Enviar" className="btn btn-danger"/>
                                 </div>
                             </div>
 
@@ -92,8 +93,8 @@ export default class Contato extends React.Component{
                 <div className="row">
                     <div className="col-sm">
                     <h5>Comentários</h5>
-                    <div class="table-responsive ">
-                        <table class="table table-hover">
+                    <div className="table-responsive ">
+                        <table className="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -103,16 +104,17 @@ export default class Contato extends React.Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                { this.state.comentarios.map(
+                                { 
+                                    this.state.comentarios.map(
                                     comentario => 
                                     {
-                                   return( <tr>
-                                        <th scope="row">{comentario.id_contato}</th>
-                                        <td>{comentario.nome}</td>
-                                        <td>{comentario.msg}</td>
-                                        <td>{comentario.data_cadastro}</td>
-                                    </tr>)
-                                    })
+                                    return( <tr>
+                                            <th scope="row">{comentario.id_contato}</th>
+                                            <td>{comentario.nome}</td>
+                                            <td>{comentario.msg}</td>
+                                            <td>{comentario.data_cadastro}</td>
+                                        </tr>)
+                                        })
                                 }
                             </tbody>
                         </table>

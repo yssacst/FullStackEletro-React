@@ -11,11 +11,11 @@ export default class Produtos extends React.Component{
             produtos: [],
             categoria:'todos',
         }
-        this.exibirProdutos();
+        // this.exibirProdutos();
         this.getCategoria = this.getCategoria.bind(this);
     }
     
-    exibirProdutos(){
+    componentDidMount(){
         fetch("http://localhost/react/api/index.php?tabela=produtos")
         .then(( response ) => response.json())
         .then(( responseJson ) =>
