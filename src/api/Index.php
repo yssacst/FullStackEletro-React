@@ -6,6 +6,12 @@
 
 	$tabela = $_GET['tabela'];
 	
+	if(!empty($_GET['categoria'])){
+		$chavecategoria = $_GET['categoria'];
+	}else{
+		$chavecategoria = null;
+	}
+	
    //criando conexao
 	$conn = mysqli_connect($servername,$username,$password,$database);
 
@@ -14,7 +20,25 @@
 		die("A conexao ao BD falhou" . mysqli_connect_error());
 	}
 
-	$sql = "select * from $tabela";
+	if($tabela == 'categorias' && $chavecategoria == null){
+
+		$sql='select  categorias.*, count( categorias.nome) as qtd  from categorias 
+				inner join produto_categoria on categorias.id_categoria = produto_categoria.id_categoria
+				group by categorias.nome;';
+
+	}else if($chavecategoria != null){
+
+		$sql='select produtos.* from produtos 
+				inner join produto_categoria on produtos.id_produtos = produto_categoria.id_produto 
+				inner join categorias on categorias.id_categoria = produto_categoria.id_categoria
+				where categorias.chave = "'.$chavecategoria.'";';
+
+	}else{
+
+		$sql = "select * from $tabela";
+		
+	}
+
 	$result = $conn ->query($sql);
 	
 	header("Access-Control-Allow-Origin:*");
