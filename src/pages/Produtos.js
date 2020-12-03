@@ -99,23 +99,14 @@ export default class Produtos extends React.Component{
                         }
                             <button type="button" className="list-group-item list-group-item-action" value='todos' onClick={this.getCategoria }>Todos</button> 
 
-{/*                             
-                            <button type="button" className="list-group-item list-group-item-action" value='geladeira' onClick={this.getCategoria } >Geladeiras (3)</button>
-                            <button type="button" className="list-group-item list-group-item-action" value='fogao' onClick={this.getCategoria }>Fogões (2)</button>
-                            <button type="button" className="list-group-item list-group-item-action" value='microondas' onClick={this.getCategoria }>Microondas (1)</button>
-                            <button type="button" className="list-group-item list-group-item-action" value='lavaroupas' onClick={this.getCategoria }>Lavadoura de Roupas (2)</button>
-                            <button type="button" className="list-group-item list-group-item-action" value='lavaloucas' onClick={this.getCategoria }>Lava-Louças (2)</button>
-                            <button type="button" className="list-group-item list-group-item-action" value='todos' onClick={this.getCategoria }>Todos</button> */}
-                        </div>
+                         </div>
                     </div>
 
-                    <div className="col-sm col-9 p-0">
-                        <div className="row d-flex justify-content-center mr-2 ">
+                    <div className="row d-flex justify-content-center mr-2 ">
+                         <div className="col-sm col-9 p-0">
                                 { this.state.produtos.map(
                                     produto => 
                                     {
-                                        // console.log(produto);
-                                        // console.log(produto);
                                         if(this.state.categoria === "todos"){
                                            return <CardProduto data = { produto }/>
                                         }else{
