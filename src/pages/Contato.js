@@ -113,13 +113,15 @@ export default class Contato extends React.Component{
                                     this.state.comentarios.map(
                                     comentario => 
                                     {
-                                    return( <tr>
-                                            <th scope="row">{comentario.id_contato}</th>
-                                            <td>{comentario.nome}</td>
-                                            <td>{comentario.msg}</td>
-                                            <td>{comentario.data_cadastro}</td>
-                                        </tr>)
-                                        })
+                                        return( 
+                                            <tr>
+                                                <th scope="row" >{comentario.id_contato}</th>
+                                                <td>{comentario.nome}</td>
+                                                <td>{comentario.msg}</td>
+                                                <td>{comentario.data_cadastro}</td>
+                                            </tr>
+                                        )
+                                    })
                                 }
                             </tbody>
                         </table>

@@ -48,7 +48,7 @@ export default class Produtos extends React.Component{
         let categoria = e.target.value;
         console.log(categoria);
 
-        if(categoria == 'todos'){
+        if(categoria === 'todos'){
             this.setState({
                 categoria:'todos'
             });
@@ -78,19 +78,14 @@ export default class Produtos extends React.Component{
                 </div>
                 
                 <div className="row mt-10">
-                    <div className="col">
+                    <div className="col-sm-12">
                         <h3 className="mt-3 mb-3">Produtos</h3>
-                        {/* {
-                            this.state.categoria !== 'todos'?
-                            <small>Filtrando por {this.state.categoria}</small>    :
-                                <span></span>
-                        } */}
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-sm-3">
-                        <div className="list-group p-2">
+                        <div className="list-group">
                         { this.state.categorias.map(
                             categoria => 
                             {
@@ -102,21 +97,19 @@ export default class Produtos extends React.Component{
                          </div>
                     </div>
 
-                    <div className="row d-flex justify-content-center mr-2 ">
-                         <div className="col-sm col-9 p-0">
-                                { this.state.produtos.map(
-                                    produto => 
-                                    {
-                                        if(this.state.categoria === "todos"){
-                                           return <CardProduto data = { produto }/>
-                                        }else{
-                                            return <CardProduto data = { produto }/>
-                                        }
-                                    }
-                                )}
-                        </div>
-                    </div>
+                    <div className="col-sm col-9 p-0">
+                        { this.state.produtos.map(
+                            produto => 
+                            {
+                                if(this.state.categoria === "todos"){
+                                    return <CardProduto data = { produto }/>
+                                }else{
+                                    return <CardProduto data = { produto }/>
+                                }
+                            }
+                        )}
                 </div>
+            </div>
                 <div className="row">
                     <div className="col-12 p-0">
                     <Footer img='pagamento.jpg' title="Formas de Pagamento" footer="Recode Pro"/>
